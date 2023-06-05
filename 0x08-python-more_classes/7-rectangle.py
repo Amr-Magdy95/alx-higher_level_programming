@@ -5,12 +5,17 @@
 
 class Rectangle:
     """Represents a rectangle"""
+
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """initializes a rect
         Args:
             width (int): the width of the rect
             height (int): the height of the rect
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -57,7 +62,7 @@ class Rectangle:
 
         rect = []
         for i in range(self.__height):
-            [rect.append('#') for j in range(self.__width)]
+            [rect.append(self.print_symbol) for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
@@ -67,3 +72,8 @@ class Rectangle:
         rect = "Rectangle(" + str(self.__width)
         rect += ", " + str(self.__height) + ")"
         return (rect)
+
+    def __del__(self):
+        """ print deletion msg"""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")

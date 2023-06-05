@@ -5,12 +5,16 @@
 
 class Rectangle:
     """Represents a rectangle"""
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """initializes a rect
         Args:
             width (int): the width of the rect
             height (int): the height of the rect
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -67,3 +71,8 @@ class Rectangle:
         rect = "Rectangle(" + str(self.__width)
         rect += ", " + str(self.__height) + ")"
         return (rect)
+
+    def __del__(self):
+        """ print deletion msg"""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
