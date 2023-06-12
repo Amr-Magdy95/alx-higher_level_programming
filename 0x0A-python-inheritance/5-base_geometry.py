@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" empty base geo class""
+""" empty base geo class"""
 
 
 class BaseGeometry:
