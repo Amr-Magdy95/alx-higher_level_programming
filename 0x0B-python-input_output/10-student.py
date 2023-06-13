@@ -10,7 +10,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """ class dic"""
         if (isinstance(attrs, list) and
                 all(isinstance(x, str) for x in attrs)):
