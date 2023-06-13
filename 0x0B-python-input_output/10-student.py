@@ -15,4 +15,4 @@ class Student:
         if (isinstance(attrs, list) and
                 all(isinstance(x, str) for x in attrs)):
             return {x: getattr(self, x) for x in attrs if hasattr(self, x)}
-        return (self.__dict__.copy())
+        return (self.__dict__)
